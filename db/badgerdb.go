@@ -88,7 +88,7 @@ func NewBadgerDB(dir string) (DB, error) {
 	// Time to read or write 1GB file in cloud (normal disk, not high provisioned) takes almost 20 seconds for GC
 	opts.ValueLogFileSize = badgerValueLogFileSize
 
-	opts.MaxTableSize = 1 << 20 // 2 ^ 20 = 1048576, max mempool size invokes updating vlog header for gc
+	opts.MaxTableSize = 12 << 20 // 2 ^ 20 = 1048576, max mempool size invokes updating vlog header for gc
 
 	// open badger db
 	db, err := badger.Open(opts)
